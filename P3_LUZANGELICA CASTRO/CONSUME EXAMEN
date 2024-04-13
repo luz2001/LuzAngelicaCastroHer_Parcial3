@@ -1,0 +1,15 @@
+#Generar un programa que consuma una api que muestre hostname e ip de una maquina
+#CONSUME
+
+import requests
+
+url="http://127.0.0.1:5000/task"
+response = requests.get(url)
+if response.status_code == 200:
+    data = response.json()
+    print('Solicitud Exitosa')
+    print('HOSTNAME:', data["hostname"])
+    print('IP:', data["local_ip"])
+else:
+    print("Error en la solicitud: ", response.text)
+
